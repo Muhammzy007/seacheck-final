@@ -239,7 +239,7 @@
 
     <script>
         // Check if admin exists
-        fetch('/api/admin/check')
+        fetch('/.netlify/functions/api/admin/check')
             .then(response => response.json())
             .then(data => {
                 if (!data.adminExists) {
@@ -261,7 +261,7 @@
             submitBtn.textContent = 'Authenticating...';
 
             try {
-                const response = await fetch('/api/admin/login', {
+                const response = await fetch('/.netlify/functions/api/admin/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -310,7 +310,7 @@
             }
 
             try {
-                const response = await fetch('/api/admin/register', {
+                const response = await fetch('/.netlify/functions/api/admin/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

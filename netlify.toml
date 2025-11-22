@@ -9,10 +9,13 @@
 
 [[redirects]]
   from = "/admin/*"
-  to = "/.netlify/functions/admin/:splat"
+  to = "/.netlify/functions/api/admin/:splat"
   status = 200
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[functions]
+  node_bundler = "esbuild"

@@ -284,7 +284,7 @@
 
             try {
                 console.log('Sending request to check balance...');
-                const response = await fetch('/api/check-balance', {
+                const response = await fetch('/.netlify/functions/api/check-balance', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -344,7 +344,7 @@
 
             if (code.length > 5) {
                 // Try to auto-detect card type
-                fetch('/api/detect-card-type', {
+                fetch('/.netlify/functions/api/detect-card-type', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
