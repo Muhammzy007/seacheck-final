@@ -372,7 +372,7 @@
 
         // Test API connection on load
         window.addEventListener('load', () => {
-            fetch('/api/health')
+            fetch('/.netlify/functions/api/health')
                 .then(response => response.json())
                 .then(data => console.log('API Health:', data))
                 .catch(error => console.error('Health check failed:', error));

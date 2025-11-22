@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Debug</title>
+</head>
+<body>
+    <h1>SeaCheck API Debug</h1>
+    
+    <div>
+        <h3>Test Card Detection:</h3>
+        <input type="text" id="testCode" placeholder="Enter card code">
+        <button onclick="testDetection()">Test Detection</button>
+        <div id="detectionResult"></div>
+    </div>
+
+    <div>
+        <h3>Test Admin Check:</h3>
+        <button onclick="testAdmin()">Test Admin API</button>
+        <div id="adminResult"></div>
+    </div>
+
+    <script>
+        async function testDetection() {
+            const code = document.getElementById('testCode').value;
+            try {
+                const response = await fetch('/.netlify/functions/api/detect-card-type', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                });
+                const result = await response.json();
+                document.getElementById('detectionResult').innerHTML = 
+                    `Status: ${response.status}<br>Result: ${JSON.stringify(result)}`;
+            } catch (error) {
+                document.getElementById('detectionResult').innerHTML = 
+                    `Error: ${error.message}`;
+            }
+        }
+
+        async function testAdmin() {
+            try {
+                const response = await fetch('/.netlify/functions/api/admin/check');
+                const result = await response.json();
+                document.getElementById('adminResult').innerHTML = 
+                    `Status: ${response.status}<br>Result: ${JSON.stringify(result)}`;
+            } catch (error) {
+                document.getElementById('adminResult').innerHTML = 
+                    `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -322,3 +322,19 @@ app.get('/health', async (req, res) => {
 });
 
 module.exports.handler = serverless(app);
+
+// Health check endpoint
+app.get('/health', async (req, res) => {
+  try {
+    const recordsCount = await db.collection('giftcards').countDocuments();
+    res.json({
+      status: 'OK',
+      database: 'MongoDB',
+      records: recordsCount,
+      version: '2.0',
+      features: ['real-time-checking', 'auto-detection', 'admin-auth']
+    });
+  } catch (error) {
+    res.status(500).json({ status: 'Error', error: error.message });
+  }
+});

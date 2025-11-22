@@ -8,10 +8,11 @@
   status = 200
 
 [[redirects]]
-  from = "/admin/*"
+  from = "/admin/api/*"
   to = "/.netlify/functions/api/admin/:splat"
   status = 200
 
+# Serve index.html for all other routes
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -477,7 +477,7 @@
             `;
 
             try {
-                const response = await fetch('/.netlify/functions/api/admin/history', {
+                const response = await fetch('/.netlify/functions/api/.netlify/functions/api/admin/history', {
                     headers: getAuthHeaders()
                 });
 
@@ -600,7 +600,7 @@
             }
 
             try {
-                const response = await fetch(`/.netlify/functions/api/admin/record/${id}`, {
+                const response = await fetch(`/.netlify/functions/api/.netlify/functions/api/admin/record/${id}`, {
                     method: 'DELETE',
                     headers: getAuthHeaders()
                 });
