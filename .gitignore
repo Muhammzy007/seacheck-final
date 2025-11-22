@@ -1,0 +1,9 @@
+node_modules/
+.env
+*.env.*
+*.secret.*
+secrets.txt
+*_SECRETS.md
+config/private/
+deploy-fixes.sh
+fix-deployment.sh
